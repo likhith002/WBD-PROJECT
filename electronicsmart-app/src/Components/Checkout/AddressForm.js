@@ -150,20 +150,25 @@ export default function AddressForm(props) {
       console.log("POSTing address");
       console.log(props);
       props.test(false);
-      axios
-        .patch(`http://localhost:3002/user?_id=${user._id}&addaddress=true`, {
-          Address: {
-            firstLine: ad1,
-            secondLine: ad2,
-            pin: pin,
-            city: city,
-            country: country,
-            state: state,
-          },
-        })
-        .then((res) => {
-          console.log(res.data);
-        })
+      fetch(`http://localhost:3002/user?_id=${localStorage.getItem('id')}&addaddress=true`, {
+        method: 'PATCH',
+        body:JSON.stringify({
+              Address:{
+                firstLine: ad1,
+                secondLine: ad2,
+                pin: pin,
+                city: city,
+                country: country,
+                state: state,
+              }
+          }),
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token')}`,
+            'content-type': 'application/json'
+          }
+})
+        .then((res) => res.json())
+        .then(console.log)
         .catch((err) => console.log(err.response.data));
     }
   };

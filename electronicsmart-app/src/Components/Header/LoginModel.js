@@ -44,6 +44,8 @@ export default function BasicModal() {
       })
       .then((res) => {
         dispatch(login(res.data));
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('id',res.data._id);
         setloginvar(true);
         console.log(res.data);
         handleClose();

@@ -205,13 +205,18 @@ export default function Profile() {
                                 />
                                 <EditIcon
                                   onClick={() => {
-                                    axios.patch(
-                                      `http://localhost:3002/user?_id=${currUser._id}`,
-                                      {
+                                    fetch(`http://localhost:3002/user?_id=${localStorage.getItem('id')}`,{
+                                      method: 'PATCH',
+                                      body: JSON.stringify({
                                         firstName:
                                           document.getElementById("ff_name")
                                             .value,
+                                      }),
+                                      headers: {
+                                        'content-type': 'application/json',
+                                        'authorization': `Bearer ${localStorage.getItem('token')}`
                                       }
+                                    }
                                     );
                                     setclickfn(!clickfn);
                                   }}
@@ -246,13 +251,18 @@ export default function Profile() {
                                 />
                                 <EditIcon
                                   onClick={() => {
-                                    axios.patch(
-                                      `http://localhost:3002/user?_id=${currUser._id}`,
-                                      {
+                                    fetch(`http://localhost:3002/user?_id=${localStorage.getItem('id')}`,{
+                                      method: 'PATCH',
+                                      body: JSON.stringify({
                                         lastName:
                                           document.getElementById("last_name")
                                             .value,
+                                      }),
+                                      headers: {
+                                        'content-type': 'application/json',
+                                        'authorization': `Bearer ${localStorage.getItem('token')}`
                                       }
+                                    }
                                     );
                                     setclickln(!clickln);
                                   }}

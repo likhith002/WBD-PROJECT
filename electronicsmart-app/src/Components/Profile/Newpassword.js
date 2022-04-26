@@ -48,13 +48,18 @@ export default function ChangePasswordModal() {
       if (
        newPassword===conPassword 
       ) {
-        axios.patch(`http://localhost:3002/user?_id=${user._id}`, {password:newPassword}).then((res)=>{
-          if(res.status==200){
-            dispatch(login(res.data))
-            handleClose();
-            alert("password successfuly changed");
+        fetch(`http://localhost:3002/user?_id=${localStorage.getItem('id')}`,{
+          method: 'PATCH',
+          body: JSON.stringify({
+            Password:
+              newPassword,
+          }),
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `Bearer ${localStorage.getItem('token')}`
           }
-        });
+        }
+        );
       } else {
         alert("Bad credentials");
       }

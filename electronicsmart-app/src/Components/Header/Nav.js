@@ -7,7 +7,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useAutocomplete } from "@mui/base/AutocompleteUnstyled";
 import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
-import { Search } from "@material-ui/icons/Search";
+
 import { Link, NavLink } from "react-router-dom";
 import { SelectCart } from "../../features/Reducers/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,80 +18,19 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import axios from "axios";
 import * as React from "react";
 
-// const Label = styled("label")({
-//   display: "block",
-// });
-
-// const Input = styled("input")(({ theme }) => ({
-//   width: 350,
-//   backgroundColor: "#F5F5F6",
-//   color: "#696e79",
-//   border: 0,
-
-//   padding: 10,
-//   outline: 0,
-//   flex: 0.6,
-// }));
-
-// const Listbox = styled("ul")(({ theme }) => ({
-//   width: 350,
-//   margin: 0,
-//   padding: 10,
-//   zIndex: 1,
-//   overflow: "visible",
-//   color: "#696e79",
-//   position: "absolute",
-//   listStyle: "none",
-
-//   backgroundColor: theme.palette.background.paper,
-//   overflow: "hidden",
-//   maxHeight: 200,
-//   border: "1px solid rgba(0,0,0,.25)",
-//   '& li[data-focus="true"]': {
-//     backgroundColor: "#2977f5",
-
-//     cursor: "pointer",
-//     padding: "15",
-//   },
-//   "& li:hover": {
-//     cursor: "pointer",
-//     backgroundColor: "whitesmoke",
-//     fontWeight: "Bold",
-//   },
-//   "& li:active": {
-//     backgroundColor: "#2977f5",
-//     color: "white",
-//   },
-// }));
-
 function Nav() {
   const cart = useSelector(SelectCart);
   const user = useSelector(SelectUser);
   // const [product, setProduct] = useState({});
   const dispatch = useDispatch();
-  // const baseURL = "http://localhost:3006/productnames";
+
   const handlelogout = () => {
+    localStorage.clear();
     window.location.reload();
 
     dispatch(logout());
   };
-  // useEffect(() => {
-  //   axios.get(baseURL).then((res) => {
-  //     setProduct(res.data);
-  //   });
-  // }, []);
 
-  // const {
-  //   getRootProps,
-  //   getInputProps,
-  //   getListboxProps,
-  //   getOptionProps,
-  //   groupedOptions,
-  // } = useAutocomplete({
-  //   id: "use-autocomplete-demo",
-  //   options: product,
-  //   getOptionLabel: (option) => option.name,
-  // });
   return (
     <div className="mainnavbar">
       <Link to="/">
@@ -350,30 +289,6 @@ function Nav() {
           </div>
         </div>
       </div>
-
-      {/* <div className="navbar_search">
-        <div {...getRootProps()}>
-          <Input {...getInputProps()} placeholder="Search" />
-        </div>
-        {groupedOptions.length > 0 ? (
-          <Listbox {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-              <Link to={`/product/${option.product_id}`}>
-                <li
-                  style={{
-                    padding: "10px",
-                    color: "#696e79",
-                    overflow: "visible",
-                  }}
-                  {...getOptionProps({ option, index })}
-                >
-                  {option.name}
-                </li>
-              </Link>
-            ))}
-          </Listbox>
-        ) : null}
-      </div> */}
 
       <div className="navbar_options">
         <span className="nav_option_dropdown">

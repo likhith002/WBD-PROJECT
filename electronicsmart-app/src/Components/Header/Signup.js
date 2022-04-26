@@ -135,12 +135,19 @@ export default function SignUp() {
       console.log(user_data);
       axios
         .post("http://localhost:3002/user", user_data)
-        .then((res) => console.log(res.data));
+        .then((res) =>{
+            
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('id',res.data._id);
+
+
+        });
       // axios.get(baseURL).then((res) => {
       //   setuser_db(res.data);
       // });
-      dispatch(login(user_data));
 
+
+      dispatch(login(user_data));
       navigate("/");
     }
   };

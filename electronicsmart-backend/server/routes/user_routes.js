@@ -155,7 +155,7 @@ route.patch("/user", verifytoken, async (req, res) => {
 			let id = authData.id
 
 			if (Object.keys(req.query).length === 0) {
-				res.status("400").json({ error: "Invalid params!" });
+				res.status(400).json({ error: "Invalid params!" });
 				return;
 			}
 
@@ -164,6 +164,7 @@ route.patch("/user", verifytoken, async (req, res) => {
 				// console.log(req.body.Address)
 
 				if (!req.body.Address) {
+					console.log(req.body)
 					res.status(400).json({ error: "Address missing in body!" });
 					return;
 				}
@@ -172,7 +173,7 @@ route.patch("/user", verifytoken, async (req, res) => {
 					{ $push: { Address: req.body.Address } },
 					{ new: true }
 				);
-				res.status("200").json(obj);
+				res.status(200).json(obj);
 				return;
 			} else if (params.address) {
 				if (!req.body.Address) {
@@ -184,7 +185,7 @@ route.patch("/user", verifytoken, async (req, res) => {
 					{ $pull: { Address: req.body.Address } },
 					{ new: true }
 				);
-				res.status("200").json(obj);
+				res.status(200).json(obj);
 				return;
 			}
 			let updates = SeperateAttribParams(UserModel, req.body);
@@ -195,9 +196,9 @@ route.patch("/user", verifytoken, async (req, res) => {
 				{ new: true }
 			);
 			if (updatedObject) {
-				res.status("200").json(updatedObject);
+				res.status(200).json(updatedObject);
 			} else {
-				res.status("500").json({ error: "Failed to update object!" });
+				res.status(500).json({ error: "Failed to update object!" });
 			}
 		}
 

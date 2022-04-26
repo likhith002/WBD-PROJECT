@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { login, SelectUser } from "./features/Reducers/UserSlice";
 
 import "./App.css";
 import SignUp from "./Components/Header/Signup";
@@ -18,15 +19,29 @@ import AirConditioners from "./Components/AirConditioners/AirConditioners";
 import Wishlist from "./Components/Cart/Wishlist";
 import LoginModel from "./Components/Header/LoginModel";
 import Error404 from "./Components/Error404";
-// import Dashboard from "./Components/Admin/pages/index";
-// import Account from "./Components/Admin/pages/account";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
-// import Customer from "./Components/Admin/pages/customers";
-// import Login from "./Components/Admin/pages/login";
-// import Products from "./Components/Admin/pages/products";
-// import Register from "./Components/Admin/pages/register";
-// import Settings from "./Components/Admin/pages/settings";
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector(SelectUser);
+ 
+useEffect(() => {
+    if(localStorage.getItem('token') && localStorage.getItem('id')){
+      
+      if(!user)
+      {
+          axios.get(`http://localhost:3002/user?_id=${localStorage.getItem('id')}`, {
+            headers: {
+            'authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+          }).then((res)=>{
+            dispatch(login(res.data))
+          })
+      }
+    }
+}, [])
+
   return (
     <BrowserRouter>
       <div className="App">
