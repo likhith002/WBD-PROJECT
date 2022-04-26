@@ -12,23 +12,22 @@ jobs:
         working-directory: ./electronicsmart-app
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm ci
-        name: Installing dependencies 
-      - run: npm build
-        name: Building the webapp
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./electronicsmart-backend
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
+      - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "electronicsmart-proj" 
+          heroku_app_name: "electronicsmart-proj"
           heroku_email: "{{secrets.HEROKU_EMAIL}}"
+          buildpack: "https://github.com/mars/create-react-app-buildpack.git"
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: ./electronicsmart-backend
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: akhileshns/heroku-deploy@v3.12.12
+  #       with:
+  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+  #         heroku_app_name: "electronicsmart-proj" 
+  #         heroku_email: "{{secrets.HEROKU_EMAIL}}"
