@@ -1,1 +1,1 @@
-web: node ./electronicsmart-backend/server.js
+web: node  ./electronicsmart-backend/server.js
