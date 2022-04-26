@@ -1,0 +1,3 @@
+./electronicsmart-app/node_modules
+./lectronicsmart-backend/node_modules
+./lectronicsmart-backend/*.env
