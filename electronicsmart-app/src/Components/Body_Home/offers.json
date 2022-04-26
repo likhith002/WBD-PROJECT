@@ -1,0 +1,123 @@
+
+{
+    "offers":[
+        {
+            "id": 1,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 2,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 3,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 4,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 5,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 6,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 7,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 8,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/A03core_Small_Tile_160x160.png?$160_160_PNG$"
+        }
+    ],
+    "tvs":[
+        {
+            "id": 1,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        },
+        {
+            "id": 2,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        },
+        {
+            "id": 3,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        },
+        {
+            "id": 4,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        }, {
+            "id": 5,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        }, {
+            "id": 6,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        }, {
+            "id": 7,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        }, {
+            "id": 8,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/160x160_TV.png?$160_160_PNG$"
+        }
+    ],
+    "mobiles":[
+        {
+            "id": 1,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 2,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id":3,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id" :4,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 5,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        }, {
+            "id" :6,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        }, {
+            "id" :7,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        }, {
+            "id" :8,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/Smalltile_Dishwasher_160x160.png?$160_160_PNG$"
+        }
+    ],
+    "laptops":[
+        {
+            "id": 1,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 2,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 3,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        },
+        {
+            "id": 4,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 5,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 6,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 7,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        }, {
+            "id": 8,
+            "image": "https://images.samsung.com/is/image/samsung/assets/in/home/S7_160x160.png?$160_160_PNG$"
+        }
+    ]  
+}

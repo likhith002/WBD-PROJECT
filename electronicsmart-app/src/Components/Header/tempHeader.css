@@ -1,0 +1,23 @@
+.mainnavbar{
+    display :flex;
+    padding: 50px;
+    padding-top:40px;
+    justify-content: space-evenly;
+    object-fit: contain;
+    width:100%;
+    top: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    text-align: center;
+    place-items: center;
+    min-width: 300px!important;
+    height: 60px;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    background-color: rgb(255, 255, 255);
+}
+
+.avtr{
+    margin-left: -560px!important;
+}

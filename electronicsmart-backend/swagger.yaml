@@ -1,0 +1,446 @@
+openapi: 3.0.0
+info:
+  title: Electronics Mart
+  description: API for website selling electonic items
+  version: 1.0.0
+servers:
+  - url: http://localhost:3002/
+
+tags:
+  - name: E-Mart
+    description: API to manage the orders of products in website.
+paths:
+  /orders:
+    get:
+      summary: Lists all the orders
+      tags: [orders]
+      operationId: Getusers
+      parameters:
+      - name: user ID
+        in: query
+        description: The user ID for Orders
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Orders are retrived
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+
+        400:
+          description: Error while retriving data
+        404:
+            description: No orders with this user id                     
+    post:
+      summary: Creates a orders.
+      tags: [orders]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses: 
+        400:
+          description: Order details cannot be empty
+        500:
+          description: Error
+        200:
+          description: Order is created           
+  /reviews:
+    get:
+      summary: Lists all the reviews
+      tags: [reviews]
+      parameters:
+        - name: id
+          in: query
+          description: filter of product to return by price
+          required: false
+          schema:
+              type: string 
+      responses:
+        200:
+          description: reviews are retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+    post:
+      summary: Creates a reviews.
+      tags: [reviews]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses: 
+        404:
+          description: No review with this product id.
+        500:
+          description: Error
+        200:
+          description: Review is created           
+  /product:
+    put:
+      tags: [products]
+      summary: To add a product
+      requestBody:
+        description: Product object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        505:
+          description: Internal server failure
+          content: {}
+        200:
+          description: Product created
+          content: {}        
+    get:
+      summary: Find product by price
+      tags: [products]
+      description: Returns a single product
+      operationId: getProductbyvalue
+      parameters:
+      
+        - name: price_max
+          in: query
+          description: filter of product to return by price max
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number   
+        - name: price_min
+          in: query
+          description: filter of product to return by price min
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number         
+        - name: ram_min
+          in: query
+          description: filter of product to return by ram max
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number     
+        - name: ram_max
+          in: query
+          description: filter of product to return by ram min
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number            
+        - name: memory_min
+          in: query
+          description: filter of product to return by memory min
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number  
+        - name: memory_max
+          in: query
+          description: filter of product to return by memory max
+          required: false
+          schema:
+           type: number
+           properties:
+              price:
+               type: number         
+        - name: type
+          in: query
+          description: filter of product to return by type
+          required: false
+          schema:
+           type: string
+          
+        - name: availability
+          in: query
+          description: filter of product to return by availability
+          required: false
+          schema:
+           type: boolean 
+        - name: brand
+          in: query
+          description: filter of product to return by brand
+          required: false
+          schema:
+           type: string
+        - name: networkconnectivity
+          in: query
+          description: filter of product to return by networkconnectivity
+          required: false
+          schema:
+           type: string                                                       
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        400:
+          description: Invalid value supplied
+          content: {}
+        404:
+          description: Product not found
+          content: {}
+  /user:
+    get:
+      summary: user is found
+      description: Find user
+      tags: [users]
+      operationId: getuserbyvalue
+      parameters:
+        - name: id
+          in: query
+          description: filter of user to return by id
+          required: false
+          schema:
+           type: string       
+      responses:
+        200:
+          description: user is found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        500:
+          description: error Internal Server Failure!
+        404:
+          description: no user is found
+          content: {}  
+    post:   
+      summary: Creates a user.
+      tags: [users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses: 
+
+        500:
+          description: error Internal Server Failure!
+        201:
+          description: user is created     
+  # /login:
+  #   post:
+  #     summary: user login
+  #     description: Find user
+  #     tags: [login]
+  #     operationId: getuserbyuserpassword
+  #     parameters:
+  #       - name: username
+  #         in: query
+  #         description: filter of user to return by user name
+  #         required: false
+  #         schema:
+  #          type: string   
+  #       - name: password
+  #         in: query
+  #         description: filter of user to return by password
+  #         required: false
+  #         schema:
+  #          type: string        
+  #     responses:
+  #       302:
+  #         description: Username and Password combination found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/User'
+  #       404:
+  #         description: Username and Password combination not found!
+              
+
+
+components:
+  schemas:
+    Order:
+     type: object
+     required: 
+      - user_id
+      - total
+      - products
+      - address
+      - payment
+     properties:
+        user_id:
+          type: string
+          description: The type of product
+        total:
+          type: number
+          description: The total cost of the products
+        products:
+          type: array
+          description: The products bought
+          items:
+             type: object
+             properties:
+               product_id:
+                   type: string
+        address:
+          type: array
+          description: The price of the product
+        payment:
+           type: array
+           items:
+              type: object
+              properties:
+                card_type:
+                   type: string
+                card_holder:
+                   type: string
+                card_number:
+                   type: number
+                   minimum: 12
+                   maximum: 12      
+                exp_date: 
+                   type: string   
+     example:
+          user_id: pran
+          total: 22700
+          products: [{1:"Oppo"},{2:"vivo"},{3:"Samsung"}]
+          address: ""
+          payment: [{card_type:"completed",card_holder:"s",card_number:12345,exp_date:"12"}]
+    Review: 
+     type: object
+     required:
+      - name
+      - user_id
+      - product_id
+      - data
+      - rating
+     properties:
+        name:
+          type: string
+        user_id:
+          type: string
+        product_id:
+          type: string
+        data:
+          type: string
+        rating:
+          type: number
+     example:
+           name: lokesh
+           user_id: pran
+           product_id: product
+           data: data 
+           rating: 5     
+    Product: 
+     type: object
+     required:
+       - type
+       - availability
+       - brand
+       - price
+       - ram
+       - memory
+       - networkconnectivity
+       - pin
+       - resolution
+       - img
+       - name
+       - warranty
+       - hdmi
+     properties:
+       type: 
+         type: string 
+       availability:
+         type: boolean
+       brand:
+         type: string
+       price:
+         type: number
+       ram:
+         type: number
+       memory:
+         type: number
+       networkconnectivity:
+         type: string
+       pin:
+         type: array
+         items:
+            type: number
+       resolution: 
+         type: string
+       img: 
+         type: string
+       name:
+          type: string
+       warranty:
+          type: number
+       hdmi:
+           type: number   
+    User: 
+      type: object
+      required:
+        - username
+        - password 
+        - email
+        - phone
+        - firstName
+        - lastName
+        - address
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        phone:
+          type: number
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              firstLine:
+                type: string
+              secondLine:
+                type: string  
+              city:
+                 type: string
+              state:
+                 type: string
+              country:
+                 type: string
+              pin:
+                 type: number       
+
+                  
+
+
+
+
+
+
+
+      
+       
+
+

@@ -1,0 +1,9 @@
+.product_img_div{
+    flex: 0.6;
+    margin-top: 40px;
+}
+
+.product_img_div img{
+    object-fit:contain ;
+    height:400px;
+}

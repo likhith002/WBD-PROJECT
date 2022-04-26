@@ -1,0 +1,272 @@
+.product_info{
+    flex: 0.4;
+    margin-left:15px;
+    margin-top: 40px;
+}
+.product_title{
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #282c3f;
+    padding: 0 20px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.review_head{
+    margin-top: 50px;
+    margin-bottom:50px;
+    color: #282c3f;
+    padding: 0 20px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.product_description{
+    color: #535665;
+    padding: 5px 20px 14px 0;
+    font-size: 20px;
+    opacity: .8;
+    font-weight: 400;
+    margin: 0.67em 0;
+}
+
+.review_tag{
+
+    margin-left: 10px;
+    color:#282c3f;
+    font-size:large;
+    font-weight: 400;
+    padding: 10px;
+    
+}
+
+.review_data{
+
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px
+}
+.price_container{
+    color: #696e79;
+   
+    margin-top: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.product_price{
+    color: #282c3f;
+    font-weight: 500;
+}
+
+.inclusive_taxes{
+    color: #03a685;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    margin: 5px 10px 0 0;
+}
+
+.product_buttons{
+
+    padding: 0;
+    z-index: 0;
+    width: 84%;
+    margin-top: 15px;
+    display: flex;
+    padding:20px;
+    
+
+}
+.pincode-deliveryContainer {
+    margin-top: 30px;
+
+}
+.pincode-deliveryContainer>h4 {
+    color: #282c3f;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.pincode-deliveryOptionsIcon {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.cart_btn{
+  
+    background-color: #e2461f;
+    border: 1px solid #e2461f;
+    margin-right: 12px;
+    color: #fff;
+    min-height: 22px;
+    flex: 3;
+    border-radius: 0;
+    padding: 12px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: .4px;
+    outline: 0;
+    margin-top: 10px;
+    font-size: 16px;
+    min-height: 22px;
+    justify-content: center;
+ 
+    align-items: center;
+
+}
+.wish_btn{
+    border-radius: 0;
+    padding: 12px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 3;
+    border: 1px solid #d4d5d9;
+    background-color: #fff;
+    letter-spacing: .4px;
+    color: #282c3f;
+    outline: 0;
+    margin-top: 10px;
+    font-size: 16px;
+    min-height: 22px;
+    justify-content: center;
+ 
+    align-items: center;
+}
+
+.price_hist_graph{
+    margin-left: 100px;
+    width: 50%;
+    padding: 10px;
+}
+
+#_graph_data {
+    background-color: #e2461f;
+    border: 1px solid #e2461f;
+    margin-right: 12px;
+    color: #fff;
+    min-height: 22px;
+    /* flex: 3 1; */
+    border-radius: 0;
+    padding: 12px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: .4px;
+    outline: 0;
+    margin-top: 10px;
+    font-size: 16px;
+    min-height: 22px;
+    justify-content: center;
+    margin-left: -100px;
+}
+
+
+.recharts-wrapper{
+    margin-left: -460px;
+    width: 50%;
+    padding: 10px;
+}
+
+#_button_disp_graph{
+    margin-left: auto;
+    width: 50%;
+    padding: 10px;
+}
+.Address-switcher-container {
+    margin-top: 20px
+;
+}
+.Address-address-box {
+    font-family: inherit;
+    position: relative;
+    padding: 10px;
+    height: 44px;
+    font-size: 15px;
+    border: 1px  solid #bfc0c6;
+}
+
+.Address-address-button {
+    background-color: #fff;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    overflow: visible;
+    margin: 0;
+    color: black!important;
+
+}
+
+.pincode-enterPincode {
+    font-size: 13px;
+    color: #282c3f;
+    margin: 8px 0 0;
+}
+
+.Address-pdp-box {
+    width: 300px;
+    border-radius: 5px;
+}
+
+.Address-pincode-input {
+    margin: 12px 0;
+}
+
+.Address-pincode-input>input {
+    border: none;
+    width: 100%;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    outline: none;
+    overflow: visible;
+    margin: 0;
+    cursor: text;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+
+.review_btn{
+    outline: 0;
+    border:0;
+    
+    color:white;
+    cursor: pointer;
+    background-color:#e2461f;
+    font-weight:500px;
+    margin:10px;
+
+}
+
+.form-review{
+    display: flex;
+    margin-left: -100px;
+}
+
+.review_input{
+
+    padding:6px;
+    color:#535665;
+    outline: 0;
+    border:1px solid #535665;
+    margin:10px;
+    width:300px;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+}

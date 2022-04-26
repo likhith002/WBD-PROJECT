@@ -1,0 +1,116 @@
+
+
+#pranay-123{
+    text-align: center;
+    font-family: Whiteney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif !important;
+}
+
+#pranay-123  button{
+    border: 0;
+    padding: 30;
+    width: auto;
+    overflow: visible;
+    background: 0;
+    /* text-align: inherit; */
+    border-radius: 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+}
+
+#pranay-123 ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+#pranay-123 ul,#pranay-123 li,#pranay-123 ol {
+    list-style: outside none none;
+    display: inline;
+}
+ 
+
+#pranay-123 ul > li {
+    display: inline-block;
+    margin:3%;
+    *display:inline;
+}
+
+
+/* dont harcode number of columns */
+.offer_view_123,.offer_view_123 a {
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration:none ;
+}
+
+
+ .offer-grid{
+    display: inline-grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+}
+
+.offer_view_123 {
+    border-radius: 5px;
+    background-color: #e1e1eb;
+    padding: 7px;
+}
+
+
+.offer_view_123 img {
+    background: transparent ;
+}
+
+
+.offer_view_123 :hover {
+    /* background: transparent;  */
+    /* background-color:#a0a3ac; */
+    /* transition-duration: 50ms;
+    transition-timing-function: ease-in; */
+}
+
+ .offerBtn{
+    padding: 10px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+
+}
+
+.offerBtn:hover{
+    background-color: #e1e1eb !important;
+    text-decoration: underline;
+}
+
+
+.buyBtn {
+    display: none;
+}
+
+.offerBtn:hover,.buyBtn :hover{
+    display: inline-block;
+}
+
+.itemName{
+    font-weight: bold;
+    text-align: left;
+}
+
+.discountText{
+    color: red !important;
+    font-size: small;
+    text-align: right;
+}
+
+
+.naviBtn {
+    background-color: rebeccapurple;
+    margin: 5px;
+    vertical-align: middle;
+
+}

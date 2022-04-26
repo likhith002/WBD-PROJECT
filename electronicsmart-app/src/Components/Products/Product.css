@@ -1,0 +1,20 @@
+.product-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.product{
+    display: flex;
+    margin-top:20px;
+
+}
+
+.title_prod_det{
+    text-align: center;
+    margin: 20px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    color: #696e79!important;
+    font-size:20px;
+}
