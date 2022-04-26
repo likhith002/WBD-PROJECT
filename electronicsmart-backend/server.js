@@ -28,6 +28,7 @@ app.use(cors());
 // parse the request
 
 app.use('/images', express.static('images'));
+app.use('/', express.static(path.join(__dirname, "../electronicsmart-app/build")));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -71,6 +72,11 @@ app.post("/avatar", upload.single("avatar"), async (req, res) => {
     let tt = await UserModel.findOneAndUpdate(params, {$set: {avatar: `localhost:${port}/images/${req.file.filename}`}})
     res.status(200).json(tt);
   }
+})
+
+
+app.get('/*', (req,res)=>{
+  res.sendFile(path.join(__dirname, "../electronicsmart-app/build", 'index.html'));
 })
 
 
