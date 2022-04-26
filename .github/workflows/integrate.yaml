@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: 14.x
       - run: npm ci
-      - name: Installing dependencies 
+        name: Installing dependencies 
       - run: npm build
-      - name: Building the webapp
+        name: Building the webapp
   deploy:
     needs: build
     runs-on: ubuntu-latest
