@@ -21,7 +21,8 @@ import * as React from "react";
 function Nav() {
   const cart = useSelector(SelectCart);
   const user = useSelector(SelectUser);
-  // const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
+  const [search, setSearch] = useState(null);
   const dispatch = useDispatch();
 
   const handlelogout = () => {
@@ -30,6 +31,20 @@ function Nav() {
 
     dispatch(logout());
   };
+
+  useEffect(() => {
+    if (search) {
+      axios
+        .get(`http://localhost:3002/search?q=${encodeURIComponent(search)}`)
+        .then((res) => {
+          if (res.data.length) {
+            setProduct(res.data);
+          }
+        });
+    } else {
+      setProduct([]);
+    }
+  }, [search]);
 
   return (
     <div className="mainnavbar">
@@ -290,6 +305,27 @@ function Nav() {
         </div>
       </div>
 
+      {/*Search Component */}
+      <div>
+        <input
+          type="text"
+          placeholder="Search"
+          className="col-md-12 input"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        {product.length === 0 ? (
+          <div></div>
+        ) : (
+          product.length > 0 &&
+          product.map((prod) => (
+            <div className="search_indi" key={prod._id}>
+              {prod.name}
+            </div>
+          ))
+        )}
+      </div>
       <div className="navbar_options">
         <span className="nav_option_dropdown">
           <AccountCircleIcon />

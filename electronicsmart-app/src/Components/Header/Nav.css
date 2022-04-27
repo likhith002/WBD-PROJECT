@@ -72,6 +72,17 @@ a {
 
 }
 
+.search_indi{
+  margin-top: 100px !important;
+  z-index: -100;
+  
+}
+
+.search_indi:hover{
+  cursor: pointer;
+
+}
+
 .navbar_search_input{
     padding: 8px 10px 10px;
     border:0;
