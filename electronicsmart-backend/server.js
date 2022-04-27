@@ -75,7 +75,7 @@ app.post("/avatar", upload.single("avatar"), async (req, res) => {
 })
 
 
-app.get('/*', (req,res)=>{
+app.get('product/*', (req,res)=>{
   res.sendFile(path.join(__dirname, "../electronicsmart-app/build", 'index.html'));
 })
 
