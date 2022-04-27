@@ -173,9 +173,6 @@ route.get('/search', async (req, res) => {
             return;
         }
 
-
-        // client.del(req.query.q);
-
         let cache = await client.get(req.query.q);
         if(cache)
         {   
