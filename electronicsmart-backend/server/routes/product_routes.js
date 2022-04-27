@@ -1,12 +1,35 @@
 const Product = require('../model/product_model');
 const express = require('express');
 const {SeperateNonAttribParams, SeperateAttribParams} = require('../util/paramhelper');
-
+const redis = require('redis');
 
 const route = express.Router()
 
 
 route.use(express.json())
+
+
+
+const client = redis.createClient({
+    url: process.env.redis_url  
+});
+
+
+client.connect()
+
+
+client.on('error', (err)=>{
+    console.log(`[REDIS] ${err}`);
+})
+
+
+client.on('connect', ()=>{
+    console.log(`[REDIS] redis connected!`)
+})
+
+
+
+
 
 
 // idempotent, add custom middleware to handle file uploads
@@ -143,11 +166,22 @@ route.patch('/product', async (req, res) => {
 
 
 route.get('/search', async (req, res) => {
+
     try {
         if (!req.query.q) {
             res.sendStatus(400);
             return;
         }
+
+        let cache = await client.get(req.query.q);
+        if(cache)
+        {   
+            console.log('redis cace found!');
+            console.log(`redis cache ${cache}`);
+            res.status(200).json(JSON.parse(cache));
+            return;
+        }
+
 
         let results;
         results = await Product.aggregate([{
@@ -171,6 +205,9 @@ route.get('/search', async (req, res) => {
         ])
 
         if (results.length) {
+            let temp = JSON.stringify(results);
+            console.log('Setting up the cache!');
+            client.set(req.query.q, temp); //don't wait for the return
             res.status(200).json(results);
         }
         else {
