@@ -8,13 +8,15 @@ const bodyparser = require("body-parser");
 dotenv.config({ path: "config.env" });
 const cors = require("cors");
 const rotatefilestream = require("rotating-file-stream");
-const connectDB = require("./server/database/connection");
+const connectDB = require("./electronicsmart-backend/server/database/connection");
 const port = process.env.PORT || 3002;
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml");
-const UserModel = require("./server/model/user_model");
-const { SeperateNonAttribParams } = require("./server/util/paramhelper");
+const UserModel = require("./electronicsmart-backend/server/model/user_model");
+const {
+  SeperateNonAttribParams,
+} = require("./electronicsmart-backend/server/util/paramhelper");
 const crypto = require("crypto");
 
 // middlewares
@@ -54,12 +56,15 @@ const access = rotatefilestream.createStream("logfile.log", {
   path: path.join(__dirname, "logs"),
 });
 
-app.use("/", require("./server/routes/order_route"));
-app.use("/", require("./server/routes/reviews_route"));
-app.use("/", require("./server/routes/user_routes"));
-app.use("/", require("./server/routes/product_routes"));
-app.use("/", require("./server/routes/price_history_routes"));
-app.use("/", require("./server/routes/offer_routes"));
+app.use("/", require("./electronicsmart-backend/server/routes/order_route"));
+app.use("/", require("./electronicsmart-backend/server/routes/reviews_route"));
+app.use("/", require("./electronicsmart-backend/server/routes/user_routes"));
+app.use("/", require("./electronicsmart-backend/server/routes/product_routes"));
+app.use(
+  "/",
+  require("./electronicsmart-backend/server/routes/price_history_routes")
+);
+app.use("/", require("./electronicsmart-backend/server/routes/offer_routes"));
 app.use(morgan("combined", { stream: access }));
 // connecting to mongo Atlas  server
 connectDB();
