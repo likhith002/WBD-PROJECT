@@ -13,10 +13,9 @@ const port = process.env.PORT || 3002;
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml");
-const UserModel = require('./server/model/user_model');
+const UserModel = require("./server/model/user_model");
 const { SeperateNonAttribParams } = require("./server/util/paramhelper");
-const crypto = require('crypto');
-
+const crypto = require("crypto");
 
 // middlewares
 //log the requests
@@ -27,8 +26,8 @@ app.use(cors());
 
 // parse the request
 
-app.use('/images', express.static('images'));
-app.use('/', express.static(path.join(__dirname, "../electronicsmart-app/build")));
+app.use("/images", express.static("images"));
+// app.use('/', express.static(path.join(__dirname, "../electronicsmart-app/build")));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -49,37 +48,52 @@ app.use(morgan("combined", { stream: access }));
 // connecting to mongo Atlas  server
 connectDB();
 
-
 const store = multer.diskStorage({
-  destination: function(req,file,cb){
-      cb(null,'./images')
+  destination: function (req, file, cb) {
+    cb(null, "./images");
   },
-  filename: function(req,file,cb){
-      cb(null, crypto.randomUUID() + file.originalname)
-  }
-})
+  filename: function (req, file, cb) {
+    cb(null, crypto.randomUUID() + file.originalname);
+  },
+});
 
-const upload = multer({storage: store})
+const upload = multer({ storage: store });
 
 app.post("/avatar", upload.single("avatar"), async (req, res) => {
+  console.log(req.body);
+  console.log("dasd");
+  console.log(req.query);
 
-  console.log(req.body)
-  console.log('dasd');
-  console.log(req.query)
-  
   let params = SeperateNonAttribParams(UserModel, req.body);
-  if(req.file){
-    let tt = await UserModel.findOneAndUpdate(params, {$set: {avatar: `localhost:${port}/images/${req.file.filename}`}})
+  if (req.file) {
+    let tt = await UserModel.findOneAndUpdate(params, {
+      $set: { avatar: `localhost:${port}/images/${req.file.filename}` },
+    });
     res.status(200).json(tt);
   }
-})
+});
 
+app.get("product/*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../electronicsmart-app/build", "index.html")
+  );
+});
 
-app.get('product/*', (req,res)=>{
-  res.sendFile(path.join(__dirname, "../electronicsmart-app/build", 'index.html'));
-})
+const __dirname1 = path.resolve();
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/electronicsmart-app/build")));
 
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname1, "electronicsmart-app", "build", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
 
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}`);

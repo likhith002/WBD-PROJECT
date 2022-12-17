@@ -1,3 +1,2 @@
 /electronicsmart-app/node_modules
-electronicsmart-backend/node_modules
-electronicsmart-backend/*.env
+/electronicsmart-backend/node_modules
