@@ -26,24 +26,24 @@ app.use(cors());
 
 // parse the request
 
-app.use("/images", express.static("images"));
-// app.use('/', express.static(path.join(__dirname, "../electronicsmart-app/build")));
+// app.use("/images", express.static("images"));
+// // app.use('/', express.static(path.join(__dirname, "../electronicsmart-app/build")));
 
-const __dirname1 = path.resolve();
+// const __dirname1 = path.resolve();
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/electronicsmart-app/build")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname1, "/electronicsmart-app/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname1, "electronicsmart-app", "build", "index.html")
-    )
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(
+//       path.resolve(__dirname1, "electronicsmart-app", "build", "index.html")
+//     )
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running..");
+//   });
+// }
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyparser.urlencoded({ extended: true }));
