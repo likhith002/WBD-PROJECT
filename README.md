@@ -1,5 +1,5 @@
 
-# WBD PROJECT  DOCUMENTATION GROUP-17
+
 
 ## TITLE    
  Designing a website that sells electronic products such as AC,TV,Mobile,Desktop to users through website
@@ -78,12 +78,3 @@ For hosting the website on heroku
 	- git push heroku master:main
 - Once you create simply open the Heroku app .
 
-
-
-
-## TEAM MEMBERS
-### S20190010008  ANNEPU LIKHITH BHARADWAJ
-### S20190010001  A PRANAY
-### S20190010005  ALLATIPALLI NAGA SAI LOKESH REDDY
-### S20190010011  ARYAN NIKHIL PHULKAR
-### S20190010070  JATOTH BHARATH CHANDRA
